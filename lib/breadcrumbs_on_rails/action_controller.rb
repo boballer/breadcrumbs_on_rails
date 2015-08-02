@@ -19,7 +19,7 @@ module BreadcrumbsOnRails
 
     protected
 
-    def add_breadcrumb(name, path = nil, options = {})
+    def add_breadcrumb_on_rails(name, path = nil, options = {})
       self.breadcrumbs_on_rails << Breadcrumbs::Element.new(name, path, options)
     end
 
@@ -80,7 +80,7 @@ module BreadcrumbsOnRails
 
     module HelperMethods
 
-      def render_breadcrumbs(options = {}, &block)
+      def render_breadcrumbs_on_rails(options = {}, &block)
         builder = (options.delete(:builder) || Breadcrumbs::SimpleBuilder).new(self, breadcrumbs_on_rails, options)
         content = builder.render.html_safe
         if block_given?
